@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/types.css') }}">
+    <style>
+        body {
+            width: 100vw;
+            background: linear-gradient(180deg, #191E23 0%, #050505 100%);
+            height: 100vh;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="VerticalLayout gap50 w100 h100 center" id="menu" style="position: absolute; top: 0px; left: 0px; transition: all .5s; background: linear-gradient(180deg, #191E23 0%, #050505 );">
+        <div class="HorizontalLayout">
+            <div class="poppins-black fs-30 typeW">
+                Welcome back, please select your server to access.
+            </div>
+        </div>
+        <div class="HorizontalLayout center gap40 w100">
+            <button class="btnMenu poppins-black fs-30 typeW" onclick="selectServer('Debian', '224.1.1.1', 5000)">
+                Debian
+            </button>
+            <button class="btnMenu poppins-black fs-30 typeW" onclick="selectServer('Fedora', '224.1.1.2', 5000)">
+                Fedora
+            </button>
+            <button class="btnMenu poppins-black fs-30 typeW" onclick="selectServer('FreeBSD', '224.1.1.3', 5000)">
+                Free BSD
+            </button>
+            <button class="btnMenu poppins-black fs-30 typeW" onclick="selectServer('Solaris', '224.1.1.4', 5000)">
+                Solaris
+            </button>
+        </div>
+    </div>
+    <div class="VerticalLayout gap50 w100 h100 left start padding-20" id="file-section" style="display: none;">
+        <div class="HorizontalLayout center gap30">
+            <div class="poppins-black fs-30 typeW">
+                Your files
+            </div>
+            <input type="file" id="fileInput" style="display: none;">
+            <button class="btnPrimary" onclick="document.getElementById('fileInput').click();">
+                Upload files
+            </button>
+            <button class="btnPrimary" onclick="showOptions()">
+                Change server
+            </button>
+            <button class="btnPrimaryRed" onclick="deleteSelectedFiles()">
+                Delete selection
+            </button>
+            <button class="btnPrimary" onclick="downloadSelectedFiles()">
+                Download selection
+            </button>            
+        </div>
+        <div class="multiContent w100 h100" id="fileList"></div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
